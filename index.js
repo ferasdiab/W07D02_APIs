@@ -46,7 +46,7 @@ app.get("/user/:name", (req, res) => {
 app.post("/create/user", (req, res) => {
   // the received information are in req.body
   // an example of the sent data would be { "name": "John", "age": 25}
-  const newUser = { name: req.body.name, age: eq.body.age };
+  const newUser = { name: req.body.name, age: req.body.age };
   // same as the above but in ES6
   // const { name, age } = req.body;
 
@@ -62,6 +62,19 @@ app.post("/create/user", (req, res) => {
   // same as above but in ES6
   // res.json({ name, age })
 });
+
+
+app.get("/first-user", (req, res) => {
+    // set the response status code to 200 (OK)
+    res.status(200);
+    // sends back a response of all users
+    res.json(users[0]);
+  });
+
+  app.get(("/"),(req, res) => {
+      res.send("hello world")
+  })
+  
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
